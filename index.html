@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>งานแต่งงาน กิตติพัฒน์ & นิตยา</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Kanit:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #f2c4ce;
+    --peach: #f9dcc4;
+    --mint: #c8e6c9;
+    --lavender: #d4b8e0;
+    --sky: #b3d9f2;
+    --cream: #fdf6ec;
+    --gold: #c9a96e;
+    --dark: #5a4a42;
+    --text: #6b5b52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Kanit', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ========== HERO ========== */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #fde8ef 0%, #fdf1e8 30%, #eef8f0 60%, #e8f4fd 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+  }
+
+  .petals {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .petal {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50% 0 50% 0;
+    opacity: 0.45;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-60px) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.45; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .hero-deco {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-names {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    color: var(--dark);
+    line-height: 1.15;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-names span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+    font-size: 0.6em;
+    margin: 8px 0;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 28px auto;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .hero-date {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--text);
+    animation: fadeUp 1s 0.6s ease both;
+  }
+
+  .hero-florals {
+    font-size: 2.5rem;
+    margin-top: 24px;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ========== NAV ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: rgba(253, 246, 236, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+
+  nav a:hover {
+    background: var(--blush);
+    color: var(--dark);
+  }
+
+  /* ========== SECTIONS ========== */
+  section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .section-title p {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+  }
+
+  .section-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+
+  /* ========== SAVE THE DATE ========== */
+  #savedate {
+    background: linear-gradient(135deg, #fde8ef, #fdf1e8);
+  }
+
+  #savedate section {
+    max-width: 700px;
+  }
+
+  .savedate-card {
+    background: white;
+    border-radius: 24px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 60px rgba(242, 196, 206, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .savedate-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(to right, var(--blush), var(--peach), var(--mint), var(--sky));
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 36px 0;
+  }
+
+  .count-box {
+    background: linear-gradient(135deg, #fde8ef, #fdf1e8);
+    border-radius: 16px;
+    padding: 20px 10px;
+  }
+
+  .count-num {
+    font-family: 'Kanit', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    color: var(--dark);
+    display: block;
+    line-height: 1;
+  }
+
+  .count-label {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .savedate-when {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.6rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .savedate-where {
+    font-size: 0.95rem;
+    color: var(--text);
+    opacity: 0.8;
+  }
+
+  /* ========== MAP ========== */
+  #location {
+    background: linear-gradient(135deg, #eef8f0, #e8f4fd);
+  }
+
+  #location section {
+    max-width: 900px;
+  }
+
+  .map-container {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 60px rgba(200, 230, 201, 0.4);
+    height: 400px;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .location-info {
+    display: flex;
+    gap: 24px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+
+  .loc-card {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .loc-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .loc-icon.pink { background: #fde8ef; }
+  .loc-icon.mint { background: #eef8f0; }
+
+  .loc-label {
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .loc-val {
+    font-size: 0.95rem;
+    color: var(--dark);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* ========== SCHEDULE ========== */
+  #schedule {
+    background: linear-gradient(135deg, #e8f4fd, #f3ebf8);
+  }
+
+  #schedule section {
+    max-width: 680px;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--blush), var(--lavender), var(--mint));
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+    animation: fadeLeft 0.6s ease both;
+  }
+
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -48px;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .timeline-time {
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .timeline-desc {
+    font-size: 0.88rem;
+    color: var(--text);
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+
+  /* ========== REGISTER ========== */
+  #register {
+    background: linear-gradient(135deg, #fdf1e8, #fde8ef);
+  }
+
+  .form-card {
+    background: white;
+    border-radius: 24px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 60px rgba(242, 196, 206, 0.25);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--gold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #f0e0d0;
+    border-radius: 12px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: #fdfaf7;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px 20px;
+    border: 1.5px solid #f0e0d0;
+    border-radius: 12px;
+    background: #fdfaf7;
+    transition: all 0.25s;
+    flex: 1;
+    min-width: 140px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.95rem;
+    color: var(--dark);
+    font-weight: 400;
+  }
+
+  .radio-label input[type="radio"] { display: none; }
+
+  .radio-custom {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #d0b898;
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s;
+  }
+
+  .radio-label input[type="radio"]:checked ~ .radio-custom {
+    border-color: var(--gold);
+    background: var(--gold);
+    box-shadow: inset 0 0 0 3px white;
+  }
+
+  .radio-label:has(input[type="radio"]:checked) {
+    border-color: var(--gold);
+    background: #fdf6ec;
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
+  }
+
+  textarea { resize: vertical; min-height: 90px; }
+
+  .btn-submit {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--gold), #b8915a);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+  }
+
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .form-success .emoji { font-size: 3rem; margin-bottom: 16px; }
+  .form-success h3 { font-family: 'Playfair Display', serif; color: var(--dark); font-size: 1.5rem; margin-bottom: 8px; }
+  .form-success p { color: var(--text); font-size: 0.95rem; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  footer .footer-names {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  /* ========== CAROUSEL ========== */
+  .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 0 24px;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLeft linear infinite;
+  }
+
+  .carousel-track:hover { animation-play-state: paused; }
+
+  @keyframes scrollLeft {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .carousel-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    width: 280px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(242,196,206,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  #wishes {
+    background: linear-gradient(135deg, #fde8ef, #f3ebf8);
+  }
+
+  .wish-input-area {
+    background: white;
+    border-radius: 24px;
+    padding: 36px;
+    box-shadow: 0 10px 60px rgba(242,196,206,0.25);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wish-input-area textarea {
+    width: 100%;
+    padding: 16px 18px;
+    border: 1.5px solid #f0e0d0;
+    border-radius: 12px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: #fdfaf7;
+    resize: vertical;
+    min-height: 100px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 12px;
+  }
+
+  .wish-input-area textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
+  }
+
+  .wish-name-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .wish-name-row input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1.5px solid #f0e0d0;
+    border-radius: 12px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.92rem;
+    color: var(--dark);
+    background: #fdfaf7;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .wish-name-row input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
+  }
+
+  .btn-wish {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #e8a0b0, #c97090);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-wish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201,112,144,0.35);
+  }
+
+  .wish-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .wish-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(242,196,206,0.2);
+    position: relative;
+    overflow: hidden;
+    animation: popIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275) both;
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .wish-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+
+  .wish-card-msg {
+    font-size: 0.92rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .wish-card-msg::before { content: '\201C'; font-size: 1.4rem; color: var(--blush); line-height: 0; vertical-align: -0.3em; margin-right: 2px; }
+  .wish-card-msg::after  { content: '\201D'; font-size: 1.4rem; color: var(--blush); line-height: 0; vertical-align: -0.3em; margin-left: 2px; }
+
+  .wish-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .wish-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .wish-card-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .wish-card-time {
+    font-size: 0.75rem;
+    color: var(--text);
+    opacity: 0.5;
+    margin-top: 1px;
+  }
+
+  .wish-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text);
+    opacity: 0.5;
+    font-size: 0.9rem;
+    grid-column: 1 / -1;
+  }
+  @media (max-width: 600px) {
+    .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 30px 20px; }
+    nav { flex-wrap: wrap; gap: 4px; }
+    nav a { font-size: 0.75rem; padding: 5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero">หน้าแรก</a>
+  <a href="#savedate">Save the Date</a>
+  <a href="#location">สถานที่</a>
+  <a href="#schedule">กำหนดการ</a>
+  <a href="#wishes">อวยพร</a>
+  <a href="#register">ลงทะเบียน</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="petals" id="petals"></div>
+  <div class="hero-deco">✦ งานมงคลสมรส ✦</div>
+  <div class="hero-names">
+    กิตติพัฒน์ <small style="font-size:0.45em; opacity:0.75;">(แชมป์)</small>
+    <span>&</span>
+    นิตยา <small style="font-size:0.45em; opacity:0.75;">(นุ่น)</small>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-date">วันที่ ๒๘ พฤศจิกายน ๒๕๖๙</div>
+  <div class="hero-florals">🌸 🌼 🌷</div>
+</div>
+
+<!-- SAVE THE DATE -->
+<div id="savedate">
+  <section>
+    <div class="section-title">
+      <h2>Save the Date</h2>
+      <p>กรุณาจองวันที่สำคัญนี้ไว้ในใจของคุณ</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="savedate-card">
+      <div class="savedate-when">วันศุกร์ที่ 28 พฤศจิกายน 2569</div>
+      <div class="savedate-where">📍 ขจี คาเฟ่ แอนด์รีสอร์ท · สุพรรณบุรี</div>
+      <div class="countdown-grid" id="countdown">
+        <div class="count-box"><span class="count-num" id="cd-days">--</span><span class="count-label">วัน</span></div>
+        <div class="count-box"><span class="count-num" id="cd-hours">--</span><span class="count-label">ชั่วโมง</span></div>
+        <div class="count-box"><span class="count-num" id="cd-mins">--</span><span class="count-label">นาที</span></div>
+        <div class="count-box"><span class="count-num" id="cd-secs">--</span><span class="count-label">วินาที</span></div>
+      </div>
+      <p style="font-size:0.9rem; color: var(--text); opacity:0.8;">เราตั้งตารอที่จะแบ่งปันช่วงเวลาพิเศษนี้ร่วมกับคุณ 💕</p>
+    </div>
+  </section>
+</div>
+
+<!-- LOCATION -->
+<div id="location">
+  <section>
+    <div class="section-title">
+      <h2>สถานที่จัดงาน</h2>
+      <p>ขจี คาเฟ่ แอนด์รีสอร์ท</p>
+      <div class="section-line"></div>
+    </div>
+    <!-- Venue Photo -->
+    <div style="border-radius:24px; overflow:hidden; box-shadow:0 10px 60px rgba(200,230,201,0.4); margin-bottom:24px; height:280px; position:relative;">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMzVsdAfLPktuYFb8UciZFRXFqOhkuPIBvSZPBq=w1200-h600-k-no"
+           alt="ขจี คาเฟ่ แอนด์รีสอร์ท"
+           style="width:100%; height:100%; object-fit:cover; display:block;">
+      <div style="position:absolute; bottom:0; left:0; right:0; padding:20px 24px; background:linear-gradient(to top, rgba(90,74,66,0.75), transparent);">
+        <div style="color:white; font-size:1.1rem; font-weight:500; letter-spacing:1px;">📍 ขจี คาเฟ่ แอนด์รีสอร์ท</div>
+        <div style="color:rgba(255,255,255,0.8); font-size:0.82rem; margin-top:2px;">สองพี่น้อง · สุพรรณบุรี</div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.5!2d100.0600364!3d14.204032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e251a867f0224f%3A0x4b85a4e285ed3088!2sKaJee%20Cafe'%20and%20Hostel!5e0!3m2!1sth!2sth!4v1700000000002!5m2!1sth!2sth"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <!-- fallback static map if API key doesn't work -->
+    <div class="location-info">
+      <div class="loc-card">
+        <div class="loc-icon pink">📍</div>
+        <div>
+          <div class="loc-label">ที่อยู่</div>
+          <div class="loc-val">243/3 ถนนราษฎร์อุทิศ<br>ตำบลสองพี่น้อง<br>สุพรรณบุรี 72110</div>
+        </div>
+      </div>
+      <div class="loc-card">
+        <div class="loc-icon mint">🚗</div>
+        <div>
+          <div class="loc-label">การเดินทาง</div>
+          <div class="loc-val">จากกรุงเทพฯ ระยะทางประมาณ 100 กม.<br>ใช้เวลาประมาณ 1.5 – 2 ชั่วโมง</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SCHEDULE -->
+<div id="schedule">
+  <section>
+    <div class="section-title">
+      <h2>กำหนดการ</h2>
+      <p>วันที่ 28 พฤศจิกายน 2569</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#fde8ef;">🙏</div>
+        <div class="timeline-time">06:00 น.</div>
+        <div class="timeline-title">พิธีสงฆ์</div>
+        <div class="timeline-desc">ทำบุญตักบาตร ถวายภัตตาหาร และรับพรจากพระสงฆ์</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#fdf1e8;">🪷</div>
+        <div class="timeline-time">07:00 น.</div>
+        <div class="timeline-title">พิธีรดน้ำสงฆ์</div>
+        <div class="timeline-desc">พระสงฆ์รดน้ำมนต์อวยพรให้แก่คู่บ่าวสาว</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#eef8f0;">🎊</div>
+        <div class="timeline-time">09:09 น.</div>
+        <div class="timeline-title">แห่ขันหมาก</div>
+        <div class="timeline-desc">ขบวนแห่ขันหมากพร้อมสินสอดทองหมั้น</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:#e8f4fd;">💍</div>
+        <div class="timeline-time">10:00 น.</div>
+        <div class="timeline-title">พิธีรับไหว้</div>
+        <div class="timeline-desc">คู่บ่าวสาวรับไหว้ผู้ใหญ่และญาติผู้มีเกียรติ</div>
+      </div>
+      <div class="timeline-item" style="margin-bottom:0;">
+        <div class="timeline-dot" style="background:#f3ebf8;">🍽️</div>
+        <div class="timeline-time">11:30 น.</div>
+        <div class="timeline-title">รับประทานอาหาร</div>
+        <div class="timeline-desc">งานเลี้ยงฉลองมงคลสมรส ร่วมรับประทานอาหารกับครอบครัวและเพื่อนฝูง</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- WISHES -->
+<div id="wishes">
+  <section>
+    <div class="section-title">
+      <h2>ส่งคำอวยพร</h2>
+      <p>ร่วมแสดงความยินดีแก่คู่บ่าวสาว</p>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Input -->
+    <div class="wish-input-area">
+      <div class="wish-name-row">
+        <input type="text" id="wish-name" placeholder="ชื่อของคุณ (ชื่อเล่นก็ได้ 😊)">
+      </div>
+      <textarea id="wish-msg" placeholder="เขียนคำอวยพรให้แชมป์และนุ่น... 💕"></textarea>
+      <button class="btn-wish" onclick="submitWish()">💌 ส่งคำอวยพร</button>
+    </div>
+
+    <!-- Cards Carousel -->
+    <div id="wish-carousel-empty" style="text-align:center;padding:30px;color:var(--text);opacity:0.5;font-size:0.9rem;">
+      🌸 ยังไม่มีคำอวยพร เป็นคนแรกที่ส่งความรักให้บ่าวสาวได้เลย!
+    </div>
+    <div class="carousel-wrapper" style="display:none;">
+      <div class="carousel-track" id="wish-track"></div>
+    </div>
+  </section>
+</div>
+
+<!-- REGISTER -->
+<div id="register">
+  <section>
+    <div class="section-title">
+      <h2>ยืนยันการเข้าร่วมงาน</h2>
+      <p>กรุณาตอบรับภายใน 1 ตุลาคม 2569</p>
+      <div class="section-line"></div>
+    </div>
+    <div class="form-card">
+      <div id="form-content">
+        <div class="form-row">
+          <div class="form-group">
+            <label>ชื่อ</label>
+            <input type="text" placeholder="ชื่อจริง" id="fname">
+          </div>
+          <div class="form-group">
+            <label>นามสกุล</label>
+            <input type="text" placeholder="นามสกุล" id="lname">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ชื่อเล่น</label>
+          <input type="text" placeholder="ชื่อเล่น" id="nickname">
+        </div>
+        <div class="form-group">
+          <label>รู้จักกับ</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="side" value="เจ้าบ่าว (แชมป์)" id="side-groom" onchange="handleSideChange('groom')">
+              <span class="radio-custom"></span>
+              <span class="radio-text">🤵 เจ้าบ่าว (แชมป์)</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="side" value="เจ้าสาว (นุ่น)" id="side-bride" onchange="handleSideChange('bride')">
+              <span class="radio-custom"></span>
+              <span class="radio-text">👰 เจ้าสาว (นุ่น)</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>รู้จักกันจาก</label>
+          <select id="relation" onchange="handleRelationChange(this.value)" disabled>
+            <option value="">— กรุณาเลือก รู้จักกับ ก่อน —</option>
+          </select>
+        </div>
+        <div class="form-group" id="relation-other-group" style="display:none;">
+          <label>ระบุเพิ่มเติม</label>
+          <input type="text" placeholder="กรุณาระบุ..." id="relation-other">
+        </div>
+        <div class="form-group">
+          <label>เบอร์โทรศัพท์</label>
+          <input type="tel" placeholder="08X-XXX-XXXX" id="phone">
+        </div>
+        <div class="form-group">
+          <label>จำนวนผู้เข้าร่วม</label>
+          <select id="guests">
+            <option>1 ท่าน</option>
+            <option>2 ท่าน</option>
+            <option>3 ท่าน</option>
+            <option>4 ท่าน</option>
+            <option>5 ท่านขึ้นไป</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>อาหารที่แพ้หรือทานไม่ได้</label>
+          <textarea placeholder="เช่น แพ้อาหารทะเล, ไม่ทานเนื้อวัว, มังสวิรัติ (หากไม่มี สามารถเว้นว่างได้)" id="msg"></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">✉ ยืนยันการเข้าร่วม</button>
+      </div>
+      <div class="form-success" id="form-success">
+        <div class="emoji">💕</div>
+        <h3>ขอบคุณมาก!</h3>
+        <p>เราได้รับการยืนยันของคุณแล้ว<br>ตั้งตารอต้อนรับคุณในวันพิเศษนี้</p>
+        <p style="margin-top:12px; font-size:0.82rem; color: var(--gold);">🌸 กิตติพัฒน์ & นิตยา 🌸</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-names">กิตติพัฒน์ & นิตยา</div>
+  <p>28 พฤศจิกายน 2569 · ขจี คาเฟ่ แอนด์รีสอร์ท · สุพรรณบุรี</p>
+  <p style="margin-top:12px; font-size:0.8rem; opacity:0.4;">Made with 💕 for our special day</p>
+</footer>
+
+<script>
+// ===== PETALS =====
+const petals = document.getElementById('petals');
+const colors = ['#f2c4ce','#f9dcc4','#c8e6c9','#d4b8e0','#b3d9f2','#ffd9b3'];
+for (let i = 0; i < 22; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = '-20px';
+  p.style.background = colors[Math.floor(Math.random() * colors.length)];
+  p.style.width = (10 + Math.random() * 14) + 'px';
+  p.style.height = p.style.width;
+  p.style.animationDuration = (6 + Math.random() * 8) + 's';
+  p.style.animationDelay = (Math.random() * 10) + 's';
+  petals.appendChild(p);
+}
+
+// ===== COUNTDOWN =====
+function updateCountdown() {
+  const target = new Date('2026-11-28T09:00:00');
+  const now = new Date();
+  const diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hours').textContent = '0';
+    document.getElementById('cd-mins').textContent = '0';
+    document.getElementById('cd-secs').textContent = '0';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = d;
+  document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+const WISH_URL = 'https://script.google.com/macros/s/AKfycbyjg_XOWugjPU9_NSL-PxmLgPhC8AEvvH7oFUS5dd3IgvmPBVNJwezJZoyP3xLkvMLA_Q/exec';
+
+// ===== WISH CARDS =====
+const WISH_COLORS = [
+  { bar: 'linear-gradient(to right,#f2c4ce,#f9dcc4)', avatar: '#e8899a' },
+  { bar: 'linear-gradient(to right,#c8e6c9,#b3d9f2)', avatar: '#7bbfa5' },
+  { bar: 'linear-gradient(to right,#d4b8e0,#f2c4ce)', avatar: '#b07cc6' },
+  { bar: 'linear-gradient(to right,#ffd9b3,#f9dcc4)', avatar: '#d4956a' },
+  { bar: 'linear-gradient(to right,#b3d9f2,#c8e6c9)', avatar: '#5fa8d3' },
+];
+
+let wishes = [];
+
+function renderCarousel() {
+  const track = document.getElementById('wish-track');
+  if (!track) return;
+  if (wishes.length === 0) {
+    track.parentElement.style.display = 'none';
+    document.getElementById('wish-carousel-empty').style.display = 'block';
+    return;
+  }
+  track.parentElement.style.display = 'block';
+  document.getElementById('wish-carousel-empty').style.display = 'none';
+
+  // duplicate for infinite scroll
+  const all = [...wishes, ...wishes];
+  track.innerHTML = all.map((w, i) => {
+    const color = WISH_COLORS[i % WISH_COLORS.length];
+    const initials = w.name.trim().charAt(0) || '?';
+    return `
+      <div class="carousel-card">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:${color.bar};border-radius:20px 20px 0 0;"></div>
+        <div class="wish-card-msg">${w.message}</div>
+        <div class="wish-card-footer">
+          <div class="wish-avatar" style="background:${color.avatar};">${initials}</div>
+          <div>
+            <div class="wish-card-name">${w.name}</div>
+            <div class="wish-card-time">${w.time}</div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // set animation duration based on count
+  const duration = Math.max(20, wishes.length * 8);
+  track.style.animationDuration = duration + 's';
+}
+
+async function loadWishes() {
+  try {
+    const res = await fetch(WISH_URL + '?t=' + Date.now());
+    const data = await res.json();
+    if (data.result === 'success' && data.wishes) {
+      wishes = data.wishes;
+      renderCarousel();
+    }
+  } catch(e) { console.warn('load wishes error', e); }
+}
+
+async function submitWish() {
+  const name = document.getElementById('wish-name').value.trim();
+  const msg  = document.getElementById('wish-msg').value.trim();
+  if (!name) { alert('กรุณาใส่ชื่อของคุณด้วยนะคะ 😊'); return; }
+  if (!msg)  { alert('กรุณาเขียนคำอวยพรก่อนส่งนะคะ 💕'); return; }
+
+  const btn = document.querySelector('.btn-wish');
+  btn.disabled = true;
+  btn.textContent = '⏳ กำลังส่ง...';
+
+  const now = new Date();
+  const time = now.toLocaleDateString('th-TH', { day:'numeric', month:'short', year:'numeric' });
+
+  try {
+    await fetch(WISH_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ type: 'wish', name, message: msg })
+    });
+    wishes.push({ name, message: msg, time });
+    renderCarousel();
+    document.getElementById('wish-name').value = '';
+    document.getElementById('wish-msg').value = '';
+    btn.textContent = '✅ ส่งแล้ว!';
+    setTimeout(() => { btn.disabled = false; btn.textContent = '💌 ส่งคำอวยพร'; }, 2000);
+  } catch(err) {
+    alert('เกิดข้อผิดพลาด กรุณาลองใหม่');
+    btn.disabled = false;
+    btn.textContent = '💌 ส่งคำอวยพร';
+  }
+}
+
+loadWishes();
+
+// ===== RELATION DROPDOWN =====
+const RELATION_OPTIONS = {
+  groom: ['ร.ร. สตรีวิทยา 2', 'ม. มหิดล', 'บ. เอ็มเวิร์ด', 'อื่นๆ'],
+  bride: ['ร.ร. สองพี่น้องวิทยา', 'ม. เกษตรศาสตร์', 'กรมป่าไม้', 'อื่นๆ'],
+};
+
+function handleSideChange(side) {
+  const select = document.getElementById('relation');
+  select.disabled = false;
+  select.innerHTML = '<option value="">— กรุณาเลือก —</option>';
+  RELATION_OPTIONS[side].forEach(opt => {
+    const el = document.createElement('option');
+    el.value = opt; el.textContent = opt;
+    select.appendChild(el);
+  });
+  document.getElementById('relation-other-group').style.display = 'none';
+  document.getElementById('relation-other').value = '';
+}
+
+function handleRelationChange(val) {
+  document.getElementById('relation-other-group').style.display = val === 'อื่นๆ' ? 'block' : 'none';
+}
+
+// ===== FORM =====
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwcv_vez6e7bSxzuPKfcV4TRiL05zPR7vMlq4J0LVoPxL_38-9aCETbIPL2io_ewi_ncg/exec';
+
+async function submitForm() {
+  const fname    = document.getElementById('fname').value.trim();
+  const lname    = document.getElementById('lname').value.trim();
+  const nickname = document.getElementById('nickname').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const side     = document.querySelector('input[name="side"]:checked');
+  const relation = document.getElementById('relation').value;
+  const relationOther = document.getElementById('relation-other').value.trim();
+  const guests   = document.getElementById('guests').value;
+  const message  = document.getElementById('msg').value.trim();
+
+  if (!fname || !lname || !phone) {
+    alert('กรุณากรอกชื่อ นามสกุล และเบอร์โทรศัพท์');
+    return;
+  }
+  if (!side) {
+    alert('กรุณาเลือกว่ารู้จักกับเจ้าบ่าวหรือเจ้าสาว');
+    return;
+  }
+  if (!relation) {
+    alert('กรุณาเลือกว่ารู้จักกันจากที่ไหน');
+    return;
+  }
+
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.textContent = '⏳ กำลังส่งข้อมูล...';
+
+  const payload = {
+    fname,
+    lname,
+    nickname,
+    side: side.value,
+    relation: relation === 'อื่นๆ' ? `อื่นๆ: ${relationOther}` : relation,
+    phone,
+    guests,
+    message
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById('form-content').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  } catch(err) {
+    alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง');
+    btn.disabled = false;
+    btn.textContent = '✉ ยืนยันการเข้าร่วม';
+  }
+}
+
+// ===== MAP FALLBACK =====
+// If iframe fails, show static Google Maps link
+document.querySelector('.map-container iframe').onerror = function() {
+  this.parentElement.innerHTML = `
+    <div style="height:100%;display:flex;align-items:center;justify-content:center;background:#eef8f0;flex-direction:column;gap:16px;">
+      <div style="font-size:3rem;">🗺️</div>
+      <div style="font-family:'Sarabun',sans-serif;color:#5a4a42;font-size:1rem;">ขจี คาเฟ่ แอนด์รีสอร์ท · สุพรรณบุรี</div>
+      <a href="https://maps.google.com/?q=KaJee+Cafe+Suphan+Buri" target="_blank"
+         style="background:#c9a96e;color:white;padding:12px 24px;border-radius:10px;text-decoration:none;font-family:'Sarabun',sans-serif;">
+        เปิดใน Google Maps
+      </a>
+    </div>`;
+};
+</script>
+</body>
+</html>
