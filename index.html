@@ -973,13 +973,15 @@
         </div>
         <div class="form-group">
           <label>จำนวนผู้เข้าร่วม</label>
-          <select id="guests">
-            <option>1 ท่าน</option>
-            <option>2 ท่าน</option>
-            <option>3 ท่าน</option>
-            <option>4 ท่าน</option>
-            <option>5 ท่านขึ้นไป</option>
+          <select id="guests" onchange="handleGuestsChange(this.value)">
+            <option value="1">1 ท่าน</option>
+            <option value="2">2 ท่าน</option>
+            <option value="custom">ระบุเอง</option>
           </select>
+        </div>
+        <div class="form-group" id="guests-custom-group" style="display:none;">
+          <label>ระบุจำนวน (ท่าน)</label>
+          <input type="number" id="guests-custom" min="3" max="20" placeholder="กรอกจำนวน...">
         </div>
         <div class="form-group">
           <label>อาหารที่แพ้หรือทานไม่ได้</label>
@@ -1094,14 +1096,24 @@ function renderCarousel() {
 }
 
 async function loadWishes() {
-  try {
-    const res = await fetch(WISH_URL + '?t=' + Date.now());
-    const data = await res.json();
-    if (data.result === 'success' && data.wishes) {
-      wishes = data.wishes;
-      renderCarousel();
-    }
-  } catch(e) { console.warn('load wishes error', e); }
+  return new Promise((resolve) => {
+    const callbackName = 'wishCallback_' + Date.now();
+    window[callbackName] = function(data) {
+      delete window[callbackName];
+      document.getElementById(scriptId).remove();
+      if (data.result === 'success' && data.wishes) {
+        wishes = data.wishes;
+        renderCarousel();
+      }
+      resolve();
+    };
+    const scriptId = 'jsonp_' + Date.now();
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = WISH_URL + '?callback=' + callbackName + '&t=' + Date.now();
+    script.onerror = () => { delete window[callbackName]; resolve(); };
+    document.body.appendChild(script);
+  });
 }
 
 async function submitWish() {
@@ -1158,6 +1170,11 @@ function handleSideChange(side) {
   document.getElementById('relation-other').value = '';
 }
 
+function handleGuestsChange(val) {
+  document.getElementById('guests-custom-group').style.display = val === 'custom' ? 'block' : 'none';
+  if (val !== 'custom') document.getElementById('guests-custom').value = '';
+}
+
 function handleRelationChange(val) {
   document.getElementById('relation-other-group').style.display = val === 'อื่นๆ' ? 'block' : 'none';
 }
@@ -1173,7 +1190,15 @@ async function submitForm() {
   const side     = document.querySelector('input[name="side"]:checked');
   const relation = document.getElementById('relation').value;
   const relationOther = document.getElementById('relation-other').value.trim();
-  const guests   = document.getElementById('guests').value;
+  const guestsVal = document.getElementById('guests').value;
+  let guests;
+  if (guestsVal === 'custom') {
+    const custom = parseInt(document.getElementById('guests-custom').value);
+    if (!custom || custom < 1) { alert('กรุณาระบุจำนวนผู้เข้าร่วม'); return; }
+    guests = custom;
+  } else {
+    guests = parseInt(guestsVal);
+  }
   const message  = document.getElementById('msg').value.trim();
 
   if (!fname || !lname || !phone) {
